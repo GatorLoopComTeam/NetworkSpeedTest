@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"bufio"
 	"time"
+	"os"
 )
 
 func checkErr(err error) {
@@ -14,7 +15,7 @@ func checkErr(err error) {
 
 func main() {
 	//listen to incoming connection
-	ln, err := net.Listen("tcp", ":30000")
+	ln, err := net.Listen("tcp", ":" + os.Args[1])
 	if err != nil {
 		fmt.Println(err)
 	}
